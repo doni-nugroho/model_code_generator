@@ -5,11 +5,14 @@ library model_code_generator;
 import 'dart:convert';
 import 'dart:io';
 
-/// A Calculator.
 class ModelCodeGenerator {
   static void start(List<String> arguments) async {
     if (arguments.isEmpty) {
       print('Model name and JSON is missing in arguments. please try again.');
+    } else if (arguments.first == '--help') {
+      print('\nHow to run');
+      print('dart run model_code_generator <yourclassname>\n');
+      print('example : dart run model_code_generator user');
     } else if (!RegExp(r'^[a-zA-Z0-9]+$').hasMatch(arguments.first)) {
       print('Model name only accept Alphanumeric string.');
     } else {
@@ -30,26 +33,6 @@ class ModelCodeGenerator {
             jsonDecode(jsonString); // Attempt to decode as JSON
 
         try {
-          // var bodyJson = {
-          //   "language": "dart",
-          //   "typeName": "user",
-          //   "jsonString": {"name": "david"}
-          // };
-          // print(jsonEncode(bodyJson));
-
-          // final headers = Map<String, String>();
-          // headers['User-Agent'] =
-          //     'Thunder Client (https://www.thunderclient.com)';
-          // headers['Content-Type'] = 'application/json';
-
-          // var response = await http.post(
-          //   Uri.parse('http://raufendro-dev.com:3000/model'),
-          //   body: jsonEncode(bodyJson),
-          //   // headers: headers,
-          // );
-
-          // print(response);
-
           String tambahan = "\\lib\\model\\";
           String dirnya = Directory.current
               .toString()
@@ -65,15 +48,26 @@ class ModelCodeGenerator {
           final file = File(pathnya + filename);
 
           String tempModel = "class $className {\n";
-          String tempConstruct = "$className(";
+          String tempConstruct = "\n  $className({\n";
+          String tempfromJson =
+              "\n  $className.fromJson(Map<String, dynamic> json){\n";
+          String temptoJson = "\n  Map<String, dynamic> toJson(){\n";
+          temptoJson += "   final Map<String, dynamic> data = {};\n";
+
           jsonObj.forEach((key, value) async {
             String dataType = value.runtimeType.toString();
             dataType = dataType.replaceAll('_', '');
-            tempModel += "final $dataType? $key;\n";
-            tempConstruct += "this.$key,\n";
+            tempModel += "  $dataType? $key;\n";
+            tempConstruct += "    this.$key,\n";
+            tempfromJson += "    $key = json['$key'];\n";
+            temptoJson += "   data['$key'] = $key;\n";
           });
-          tempConstruct += ");\n";
-          tempModel += tempConstruct;
+
+          tempConstruct += "  });\n";
+          tempfromJson += "  }\n";
+          temptoJson += "   return data;\n";
+          temptoJson += "  }\n";
+          tempModel += tempConstruct + tempfromJson + temptoJson;
           tempModel += "}\n";
           await file.writeAsString(tempModel);
 

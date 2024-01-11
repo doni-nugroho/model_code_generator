@@ -1,4 +1,4 @@
-class Profil {
+class User {
   String? status;
   Map<String, dynamic>? name;
   String? username;
@@ -13,7 +13,7 @@ class Profil {
   String? uuid;
   String? objectId;
 
-  Profil({
+  User({
     this.status,
     this.name,
     this.username,
@@ -29,7 +29,7 @@ class Profil {
     this.objectId,
   });
 
-  Profil.fromJson(Map<String, dynamic> json){
+  User.fromJson(Map<String, dynamic> json){
     status = json['status'];
     name = json['name'];
     username = json['username'];
