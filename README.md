@@ -23,13 +23,24 @@ Update dependencies
 flutter pub get
 ```
 
-Run this command to change the package name.
+Run this command to create model file.
 
 ```
 flutter pub run model_code_generator <yourclassname>
 
 Example:
 flutter pub run model_code_generator user
+```
+
+Then insert/paste the json
+Example JSON:
+
+```
+{
+  "name" : "John Doe",
+  "Age" : 25,
+  "isHandsome" : true
+}
 ```
 
 Where `<yourclassname>` is the class and file name that you want for your model. replace it with any name you want.
