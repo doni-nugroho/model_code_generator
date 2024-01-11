@@ -31,7 +31,7 @@ Example:
 flutter pub run model_code_generator user
 ```
 
-Where <yourclassname> is the class and file name that you want for your model. replace it with any name you want.
+Where '<yourclassname>' is the class and file name that you want for your model. replace it with any name you want.
 
 ## Contact
 
