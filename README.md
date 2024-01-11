@@ -14,7 +14,7 @@ Add Model Code Generator to your `pubspec.yaml` in `dev_dependencies:` section.
 
 ```yaml
 dev_dependencies:
-  model_code_generator: ^1.0.0
+  model_code_generator: ^1.0.1
 ```
 
 Update dependencies
@@ -27,12 +27,17 @@ Run this command to create model file.
 
 ```
 flutter pub run model_code_generator <yourclassname>
+```
+
+Where `<yourclassname>` is the class and file name that you want for your model. replace it with any name you want.
 
 Example:
+
+```
 flutter pub run model_code_generator user
 ```
 
-Then insert/paste the json
+Then input/paste the json.
 Example JSON:
 
 ```
@@ -43,7 +48,7 @@ Example JSON:
 }
 ```
 
-Where `<yourclassname>` is the class and file name that you want for your model. replace it with any name you want.
+Press Enter twice to finish.
 
 ## Contact
 
