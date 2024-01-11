@@ -36,4 +36,4 @@ Where '<yourclassname>' is the class and file name that you want for your model.
 ## Contact
 
 - Email : [dyakuza893@gmail.com](mailto:dyakuza893@gmail.com)
-- LinkedIn : [Doni Nugroho](www.linkedin.com/in/doni-satrio-nugroho)
+- LinkedIn : [Doni Nugroho](https://www.linkedin.com/in/doni-satrio-nugroho)
