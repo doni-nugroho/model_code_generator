@@ -1,7 +1,8 @@
 name: model_code_generator
-description: "A new Flutter package project."
+description: "Model Code Generator is a simple command for make a model in flutter. it's very easy to use."
 version: 1.0.0
 homepage: https://github.com/doni-nugroho
+repository: https://github.com/doni-nugroho/model_code_generator
 
 environment:
   sdk: ">=3.2.2 <4.0.0"
