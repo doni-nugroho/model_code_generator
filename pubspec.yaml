@@ -1,7 +1,7 @@
 name: model_code_generator
 description: "A new Flutter package project."
-version: 0.0.1
-homepage: null
+version: 1.0.0
+homepage: https://github.com/doni-nugroho
 
 environment:
   sdk: ">=3.2.2 <4.0.0"
